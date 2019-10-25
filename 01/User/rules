@@ -1,0 +1,13 @@
+# Write your rules to this file
+# Rules could be on more lines, but must end with semicolon (;)
+# You can use hashtag for comment lines, block comments are not supported
+# Grammar definition is described in documentation
+
+
+IF player_dont_have_base THEN build_base;
+IF player_have_base THEN set_knights_base;
+IF money > 4 AND player_have_base AND can_place_scouts THEN spawn_scout;
+IF money > 9 AND there_is_village THEN spawn_knights_in_villages;
+IF money > 9 AND there_is_river THEN spawn_on_river;
+IF money > 39 AND there_is_forest THEN spawn_ent_forest;
+IF money > 39 AND there_is_forest THEN spawn_mag_;
