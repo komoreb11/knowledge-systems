@@ -1,0 +1,72 @@
+# Write your rules to this file
+# Rules could be on more lines, but must end with semicolon (;)
+# You can use hash tag for comment lines, block comments are not supported
+# Grammar definition is described in documentation
+
+
+IF player_doesnt_have_base THEN build_base 0 0;
+
+#lvl_1_def
+
+IF is_empty_position 1 0 AND money > 11 THEN build_knight 1 0;
+IF is_empty_position 1 -1 AND money > 11 THEN build_knight 1 -1;
+IF is_empty_position 0 -1 AND money > 11 THEN build_knight 0 -1;
+IF is_empty_position -1 -1 AND money > 11 THEN build_knight -1 -1;
+IF is_empty_position -1 0 AND money > 11 THEN build_knight -1 0;
+IF is_empty_position 0 1 AND money > 11 THEN build_knight 0 1;
+
+
+#lvl_2_def
+
+#lvl_1_def
+
+IF is_empty_position 1 0 AND round < 20 AND money > 11 THEN build_knight 1 0;
+IF is_empty_position 1 -1 AND round < 20 AND money > 11 THEN build_knight 1 -1;
+IF is_empty_position 0 -1 AND round < 20 AND money > 11 THEN build_knight 0 -1;
+IF is_empty_position -1 -1 AND round < 20 AND money > 11 THEN build_knight -1 -1;
+IF is_empty_position -1 0 AND round < 20 AND money > 11 THEN build_knight -1 0;
+IF is_empty_position 0 1 AND round < 20 AND money > 11 THEN build_knight 0 1;
+
+#lvl_2_def
+
+IF is_empty_position 1 1 AND  money > 11 THEN build_knight 1 1;
+IF is_empty_position 2 0 AND money > 11 THEN build_knight 2 0;
+IF is_empty_position 1 -2 AND money > 11 THEN build_knight 1 -2;
+IF is_empty_position -1 1 AND money > 11 THEN build_knight -1 1;
+IF is_empty_position -2 0 AND money > 11 THEN build_knight -2 0;
+IF is_empty_position -1 -2 AND money > 11 THEN build_knight -1 -2;
+IF is_empty_position -2 -1 AND money > 11 THEN build_knight -2 -1;
+IF is_empty_position 0 2 AND money > 11 THEN build_knight 0 2;
+IF is_empty_position 0 -2 AND money > 11 THEN build_knight 0 -2;
+
+
+IF is_empty_position 1 1 AND money > 49 THEN build_ent 1 1;
+IF is_empty_position 2 0 AND money > 49 THEN build_ent 2 0;
+IF is_empty_position 1 -2 AND money > 49 THEN build_ent 1 -2;
+IF is_empty_position -1 1 AND money > 49 THEN build_ent -1 1;
+IF is_empty_position -2 0 AND money > 49 THEN build_ent -2 0;
+IF is_empty_position -1 -2 AND money > 49 THEN build_ent -1 -2;
+IF is_empty_position -2 -1 AND money > 49 THEN build_ent -2 -1;
+IF is_empty_position 0 2 AND money > 49 THEN build_ent 0 2;
+IF is_empty_position 0 -2 AND money > 49 THEN build_ent 0 -2;
+
+
+IF is_empty_position 1 0 AND round > 19 AND money > 49 THEN build_ent 1 0;
+IF is_empty_position 1 -1 AND round > 19 AND money > 49 THEN build_ent 1 -1;
+IF is_empty_position 0 -1 AND round > 19 AND money > 49 THEN build_ent 0 -1;
+IF is_empty_position -1 -1 AND round > 19 AND money > 49 THEN build_ent -1 -1;
+IF is_empty_position -1 0 AND round > 19 AND money > 49 THEN build_ent -1 0;
+IF is_empty_position 0 1 AND round > 19 AND money > 49 THEN build_ent 0 1;
+
+
+
+IF visible_free_tile* hill AND money > 29 AND round > 5 THEN build_magican visible_free_tile;
+IF visible_free_tile* mountain AND round < 5 AND money > 19 THEN build_archer visible_free_tile;
+IF gyus_from_bot [0.80] AND visible_free_tile_bot* [0.70] AND money > 11 THEN build_knight_posb visible_free_tile_bot WITH 0.8;
+IF gyus_from_top [0.60] AND visible_free_tile_top* [0.80] AND money > 11 THEN build_knight_post visible_free_tile_top WITH 0.7;
+IF gyus_from_left [0.6] AND visible_free_tile_left* [0.65] AND money > 11 THEN build_knight_posl visible_free_tile_left WITH 0.7;
+IF gyus_from_right [0.5] AND visible_free_tile_right* [0.80] AND money > 11 THEN build_knight_posr visible_free_tile_right WITH 0.75;
+
+
+#IF daemon_from_top [0.30] THEN build_ent WITH 0.20;
+
